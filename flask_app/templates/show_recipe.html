@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Recipe Share</title>
+</head>
+<body>
+    <!-- This is the Nav Bar -->
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <h1 class="navbar-brand fs-1 ms-3 ";>Welcome, {{user.first_name}}</h1>
+                <div class="d-flex" role="search">
+                    <a class="btn btn-success " href="/recipes">Return to Recipes</a>
+                    <a class="btn btn-outline-success ms-3" href="/logout">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!-- This is the body -->
+        <div class="d-flex justify-content-between mx-5 align-items-center">
+            <h2>{{recipe.name}}</h2>
+            <p>Posted By: {{recipe.author}}</p>
+        </div>
+        <div name = "container" class="py-5 mx-5" style="background-color: grey;">
+                <div class="mb-3 mx-3 text-start">
+                    <p>Description: {{recipe.description}}</p>
+                </div>
+                <div class="mb-3 ms-3 text-start">
+                    <p >Under 30 Minutes?:
+                        {% if recipe.under_30 %}
+                        <span>Yes</span>
+                        {% endif %}
+                        {% if not recipe.under_30 %}
+                        <span>No</span>
+                        {% endif %}    
+                    </p>
+                </div>
+                <div class="mb-3 ms-3 text-start">
+                    <p>Instructions: {{recipe.instructions}}</p>
+                </div>
+                        <div class="mb-3 ms-3 text-start">
+                            <p>Date Created: {{recipe.date_created}}</p>
+                        </div>
+            </div>
+        </div>
+    </body>
